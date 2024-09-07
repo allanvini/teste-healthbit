@@ -1,0 +1,36 @@
+# Geral
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.db
+*.env
+
+# Virtual environment (Python)
+.venv/
+env/
+ENV/
+venv/
+.venv/
+
+# Frontend (Node.js / React / Vite)
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/.yarn/
+frontend/.pnp.*
+frontend/yarn.lock
+
+# Docker
+docker-compose.override.yml
