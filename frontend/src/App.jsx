@@ -85,7 +85,6 @@ function App() {
 
   async function fetchFoodTypes(){
     let results = await getFoodTypesByCategory(selectedFoodCategory);
-    console.log(results);
     setFoodTypes(results);
     setMarkedFoodTypes([]);
   }
@@ -163,6 +162,7 @@ function App() {
   }
 
   async function submitForm(){
+
     const errorIds = validatePage3({markedFoodTypes});
 
     if(errorIds.length>0){
@@ -205,9 +205,9 @@ function App() {
 
     const formattedForm = formatFormForSubmission(fullFields)
 
-    const response = await sendForm(formattedForm)
+    console.log("Formualario enviado: ", formattedForm)
 
-    console.log(response)
+    const response = await sendForm(formattedForm)
 
     if(response.success){
       notify({
@@ -394,13 +394,11 @@ function App() {
           <FormSection title="Preencha apenas as doenças que você tem ou já teve">
 
             <GridOrganizer>
-
               <CheckboxOptionSelector values={diabetes} id="diabetes" label="Diabetes" onChange={(e) => {
                 let tempArr = [...diabetes]
                 const { value } = e.target
                 if (tempArr.includes(value)) tempArr.splice(tempArr.indexOf(value), 1);
                 else tempArr.push(value);
-                console.log(tempArr)
                 setDiabetes(tempArr)
               }}>
                 <input type='checkbox' value="Tenho" name="Tenho" />
@@ -413,7 +411,7 @@ function App() {
                 const { value } = e.target
                 if (tempArr.includes(value)) tempArr.splice(tempArr.indexOf(value), 1);
                 else tempArr.push(value);
-                console.log(tempArr)
+                
                 setHearthProblems(tempArr)
               }}>
                 <input type='checkbox' value="Tenho" name="Tenho" />
@@ -426,7 +424,7 @@ function App() {
                 const { value } = e.target
                 if (tempArr.includes(value)) tempArr.splice(tempArr.indexOf(value), 1);
                 else tempArr.push(value);
-                console.log(tempArr)
+                
                 setHighPressure(tempArr)
               }}>
                 <input type='checkbox' value="Tenho" name="Tenho" />
@@ -439,7 +437,7 @@ function App() {
                 const { value } = e.target
                 if (tempArr.includes(value)) tempArr.splice(tempArr.indexOf(value), 1);
                 else tempArr.push(value);
-                console.log(tempArr)
+                
                 setAsthma(tempArr)
               }}>
                 <input type='checkbox' value="Tenho" name="Tenho" />
@@ -452,7 +450,7 @@ function App() {
                 const { value } = e.target
                 if (tempArr.includes(value)) tempArr.splice(tempArr.indexOf(value), 1);
                 else tempArr.push(value);
-                console.log(tempArr)
+                
                 setDepression(tempArr)
               }}>
                 <input type='checkbox' value="Tenho" name="Tenho" />
@@ -464,7 +462,7 @@ function App() {
                 const { value } = e.target
                 if (tempArr.includes(value)) tempArr.splice(tempArr.indexOf(value), 1);
                 else tempArr.push(value);
-                console.log(tempArr)
+                
                 setAnxiety(tempArr)
               }}>
                 <input type='checkbox' value="Tenho" name="Tenho" />
@@ -476,7 +474,7 @@ function App() {
                 const { value } = e.target
                 if (tempArr.includes(value)) tempArr.splice(tempArr.indexOf(value), 1);
                 else tempArr.push(value);
-                console.log(tempArr)
+                
                 setHighCholesterol(tempArr)
               }}>
                 <input type='checkbox' value="Tenho" name="Tenho" />
@@ -489,7 +487,7 @@ function App() {
                 const { value } = e.target
                 if (tempArr.includes(value)) tempArr.splice(tempArr.indexOf(value), 1);
                 else tempArr.push(value);
-                console.log(tempArr)
+                
                 setBackPain(tempArr)
               }}>
                 <input type='checkbox' value="Tenho" name="Tenho" />
@@ -502,7 +500,7 @@ function App() {
                 const { value } = e.target
                 if (tempArr.includes(value)) tempArr.splice(tempArr.indexOf(value), 1);
                 else tempArr.push(value);
-                console.log(tempArr)
+                
                 setJointPain(tempArr)
               }}>
                 <input type='checkbox' value="Tenho" name="Tenho" />
@@ -515,7 +513,7 @@ function App() {
                 const { value } = e.target
                 if (tempArr.includes(value)) tempArr.splice(tempArr.indexOf(value), 1);
                 else tempArr.push(value);
-                console.log(tempArr)
+                
                 setHeadPain(tempArr)
               }}>
                 <input type='checkbox' value="Tenho" name="Tenho" />
@@ -528,7 +526,7 @@ function App() {
                 const { value } = e.target
                 if (tempArr.includes(value)) tempArr.splice(tempArr.indexOf(value), 1);
                 else tempArr.push(value);
-                console.log(tempArr)
+                
                 setCancer(tempArr)
               }}>
                 <input type='checkbox' value="Tenho" name="Tenho" />
@@ -541,7 +539,7 @@ function App() {
                 const { value } = e.target
                 if (tempArr.includes(value)) tempArr.splice(tempArr.indexOf(value), 1);
                 else tempArr.push(value);
-                console.log(tempArr)
+                
                 setStd(tempArr)
               }}>
                 <input type='checkbox' value="Tenho" name="Tenho" />
@@ -589,7 +587,7 @@ function App() {
               const { value } = e.target
               if (tempArr.includes(value)) tempArr.splice(tempArr.indexOf(value), 1);
               else tempArr.push(value);
-              console.log(tempArr)
+              
               setMarkedFoodTypes(tempArr)
             }}
             values={markedFoodTypes}
